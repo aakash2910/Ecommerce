@@ -8,5 +8,6 @@
         private string _description { get; set;}
 
         private decimal _percentage { get; set; }
+
     }
 }

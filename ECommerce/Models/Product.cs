@@ -7,6 +7,7 @@
         private string _description { get; set; }
         private decimal _price { get; set; }   
         private int _quantity { get; set; }
-       
+        private Discount _discount { get; set; }
+               
     }
 }

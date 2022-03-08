@@ -9,5 +9,8 @@
         private string _email { get; set; }
         private short _age { get; set; }
         private int _phoneNumber { get; set; }
+        public Address Address { get; set; }    
+        public Account Account { get; set; }    
+          
     }
 }

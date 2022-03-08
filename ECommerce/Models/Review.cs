@@ -8,6 +8,8 @@
         private int _reviewCount { get; set; } 
         private string _reviewDetail { get; set; }
         private byte _rating { get; set; }
+        private User _user { get; set; }
+        private Product _product { get; set; }
 
     }
 }
