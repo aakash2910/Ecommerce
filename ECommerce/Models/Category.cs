@@ -2,8 +2,8 @@
 {
     public class Category
     {
-        private int _categoryID { get; set; }
-        private string _categoryName { get; set; }
-        private Product _product { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public Product Product { get; set; }
     }
 }

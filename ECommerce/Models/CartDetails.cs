@@ -2,8 +2,8 @@
 {
     public class CartDetails
     {
-        private int _cartDetailId { get; set; }
-        private Cart _cart { get; set; }
-        private Product _product { get; set; }
+        public int CartDetailId { get; set; }
+        public Cart Cart { get; set; }
+        public Product Product { get; set; }
     }
 }

@@ -2,13 +2,14 @@
 {
     public class Address
     {
-        private string _addressLineOne { get; set; }
-        private string _addressLineTwo { get; set; }
-        private string _city { get; set; }
-        private string _province { get; set; }
-        private string _country { get; set; }
-        private string _zipCode { get; set; }
-        private User _user { get; set; }
+        public string AddressId { get; set; }
+        public string AddressLineOne { get; set; }
+        public string AddressLineTwo { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Country { get; set; }
+        public string ZipCode { get; set; }
+        public User User { get; set; }
 
     }
 }

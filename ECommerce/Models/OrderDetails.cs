@@ -2,11 +2,11 @@
 {
     public class OrderDetails
     {
-        private int _orderDetailId { get; set; }
-        private Product _product { get; set; }
-        private Order _order { get; set; }
-        private int _quantity { get; set; }
-        private decimal _unitPrice { get; set; }
-        private Discount _discount { get; set; }
+        public int OrderDetailId { get; set; }
+        public Product Product { get; set; }
+        public Order Order { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public Discount Discount { get; set; }
     }
 }

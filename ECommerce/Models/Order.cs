@@ -2,10 +2,10 @@
 {
     public class Order
     {
-        private int _orderId { get; set; }
-        private DateTime _orderDate { get; set; }
-        private User _user { get; set; }
-        private List<Product> _products { get; set; }
+        public int OrderId { get; set; }
+        public DateTime OrderDate { get; set; }
+        public User User { get; set; }
+        public List<Product> Products { get; set; }
         
     }
 }

@@ -2,13 +2,13 @@
 {
     public class User
     {
-        private int _userID { get; set; }
-        private string _firstName { get; set; }
-        private string _lastName { get; set; }
-        private DateTime _birthDate { get; set; }
-        private string _email { get; set; }
-        private short _age { get; set; }
-        private int _phoneNumber { get; set; }
+        public int UserID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Email { get; set; }
+        public short Age { get; set; }
+        public int PhoneNumber { get; set; }
         public Address Address { get; set; }    
         public Account Account { get; set; }    
           

@@ -2,12 +2,12 @@
 {
     public class Discount
     {
-        private int _discountId { get; set; }
-        private string _name { get; set;}
+        public int DiscountId { get; set; }
+        public string Name { get; set;}
 
-        private string _description { get; set;}
+        public string Description { get; set;}
 
-        private decimal _percentage { get; set; }
+        public decimal Percentage { get; set; }
 
     }
 }

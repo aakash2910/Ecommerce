@@ -2,12 +2,12 @@
 {
     public class Product
     {
-        private int _productId { get; set; }
-        private string _productName { get; set; }
-        private string _description { get; set; }
-        private decimal _price { get; set; }   
-        private int _quantity { get; set; }
-        private Discount _discount { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }   
+        public int Quantity { get; set; }
+        public Discount Discount { get; set; }
                
     }
 }

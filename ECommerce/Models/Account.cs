@@ -2,13 +2,13 @@
 {
     public class Account
     {
-        private User _user { get; set; }
-        private int _accountId { get; set; }    
-        private string _userName { get; set; }
-        private string _password { get; set; }
-        private string _securityQuestion { get; set; }
-        private string _securityAnswer { get; set; }
-        private string _passwordRecoveryEmail { get; set; }
-        private DateTime _created { get; set; }
+        public User User { get; set; }
+        public int AccountId { get; set; }    
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
+        public string PasswordRecoveryEmail { get; set; }
+        public DateTime Created { get; set; }
     }
 }

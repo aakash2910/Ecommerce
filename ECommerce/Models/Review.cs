@@ -2,14 +2,14 @@
 {
     public class Review
     {
-        private int _reviewId { get; set; }
-        private string _title { get; set; }
-        private DateTime _reviewDate { get; set; }
-        private int _reviewCount { get; set; } 
-        private string _reviewDetail { get; set; }
-        private byte _rating { get; set; }
-        private User _user { get; set; }
-        private Product _product { get; set; }
+        public int ReviewId { get; set; }
+        public string Title { get; set; }
+        public DateTime ReviewDate { get; set; }
+        public int ReviewCount { get; set; } 
+        public string ReviewDetail { get; set; }
+        public byte Rating { get; set; }
+        public User User { get; set; }
+        public Product Product { get; set; }
 
     }
 }
