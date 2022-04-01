@@ -1,10 +1,16 @@
-﻿namespace ECommerce.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ECommerce.Models
 {
     public class Cart
     {
+        [Key]
         public int CartId { get; set; }
 
-        public User User { get; set; }
-        public List<Product> Products { get; set; }
+        [ForeignKey("AccountId")]
+        public Account Account { get; set; }
+
+        public List<CartDetail> CartDetail { get; set; }
     }
 }
