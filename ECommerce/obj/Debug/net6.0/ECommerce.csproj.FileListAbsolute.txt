@@ -266,3 +266,4 @@ C:\Users\user\Desktop\Programming Books\C#\Projects\ECommerce\ECommerce\bin\Debu
 C:\Users\user\Desktop\Programming Books\C#\Projects\ECommerce\ECommerce\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\user\Desktop\Programming Books\C#\Projects\ECommerce\ECommerce\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\user\Desktop\Programming Books\C#\Projects\ECommerce\ECommerce\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\user\Desktop\Programming Books\C#\Projects\ECommerce\ECommerce\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
