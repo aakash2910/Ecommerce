@@ -23,6 +23,6 @@ namespace ECommerce.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Category> Categories { get; set; }
-
+        public DbSet<Page> Pages { get; set; }
     }
 }
