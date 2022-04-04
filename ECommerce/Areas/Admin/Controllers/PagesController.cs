@@ -81,7 +81,7 @@ namespace ECommerce.Areas.Admin.Controllers
         }
 
 
-        // POST : admin/pages/edit
+        // POST : admin/pages/edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Page page)

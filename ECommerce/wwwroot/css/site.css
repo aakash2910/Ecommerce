@@ -16,3 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+a:hover {
+    opacity : .5 !important;
+}

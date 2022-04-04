@@ -162,7 +162,6 @@ namespace ECommerce.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -332,11 +331,11 @@ namespace ECommerce.Migrations
 
             modelBuilder.Entity("ECommerce.Models.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -345,24 +344,28 @@ namespace ECommerce.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DiscountId")
+                    b.Property<int?>("DiscountId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("SKU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ProductId");
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
@@ -467,7 +470,7 @@ namespace ECommerce.Migrations
                         .IsRequired();
 
                     b.HasOne("ECommerce.Models.Product", "Product")
-                        .WithMany("CartDetails")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -505,7 +508,7 @@ namespace ECommerce.Migrations
                         .IsRequired();
 
                     b.HasOne("ECommerce.Models.Product", "Product")
-                        .WithMany("OrderDetails")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -518,20 +521,16 @@ namespace ECommerce.Migrations
             modelBuilder.Entity("ECommerce.Models.Product", b =>
                 {
                     b.HasOne("ECommerce.Models.Category", "Category")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ECommerce.Models.Discount", "Discount")
+                    b.HasOne("ECommerce.Models.Discount", null)
                         .WithMany("Products")
-                        .HasForeignKey("DiscountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DiscountId");
 
                     b.Navigation("Category");
-
-                    b.Navigation("Discount");
                 });
 
             modelBuilder.Entity("ECommerce.Models.Review", b =>
@@ -543,7 +542,7 @@ namespace ECommerce.Migrations
                         .IsRequired();
 
                     b.HasOne("ECommerce.Models.Product", "Product")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -556,7 +555,7 @@ namespace ECommerce.Migrations
             modelBuilder.Entity("ECommerce.Models.WishListDetail", b =>
                 {
                     b.HasOne("ECommerce.Models.Product", "Product")
-                        .WithMany("WishListDetails")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -587,11 +586,6 @@ namespace ECommerce.Migrations
                     b.Navigation("CartDetail");
                 });
 
-            modelBuilder.Entity("ECommerce.Models.Category", b =>
-                {
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("ECommerce.Models.Discount", b =>
                 {
                     b.Navigation("Products");
@@ -606,17 +600,6 @@ namespace ECommerce.Migrations
                 {
                     b.Navigation("Orders")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ECommerce.Models.Product", b =>
-                {
-                    b.Navigation("CartDetails");
-
-                    b.Navigation("OrderDetails");
-
-                    b.Navigation("Reviews");
-
-                    b.Navigation("WishListDetails");
                 });
 
             modelBuilder.Entity("ECommerce.Models.WishList", b =>

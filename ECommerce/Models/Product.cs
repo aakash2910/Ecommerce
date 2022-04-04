@@ -6,23 +6,32 @@ namespace ECommerce.Models
     public class Product
     {
         [Key]
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public int Id { get; set; }
+
+        [Required, MinLength(2, ErrorMessage = "Minimum length is 2 characters")]
+        public string Name { get; set; }
+        public string? Slug { get; set; }
+
+        [Required, MinLength(4, ErrorMessage = "Minimum length is 5 characters")]
         public string Description { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }   
-        public int Quantity { get; set; }
+        public string Image { get; set; }
         public string SKU { get; set; }
 
+        public int CategoryId { get; set; }
+
+
+        [ForeignKey("CategoryId")]
+        public virtual Category Category { get; set; }
+
+        /*[ForeignKey("DiscountId")]
+        public Discount Discount { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
         public List<CartDetail> CartDetails { get; set; }
         public List<WishListDetail> WishListDetails { get; set; }
-        public List<Review> Reviews { get; set; }
-
-        [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
-
-        [ForeignKey("DiscountId")]
-        public Discount Discount { get; set; }
+        public List<Review> Reviews { get; set; }*/
     }
 }
