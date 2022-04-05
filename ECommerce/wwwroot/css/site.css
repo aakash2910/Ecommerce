@@ -20,3 +20,19 @@ body {
 a:hover {
     opacity : .5 !important;
 }
+
+.ck-editor__editable {
+    min-height: 200px;
+}
+
+select {
+    -webkit-appearance: listbox !important
+}
+
+form label {
+    font-weight: bold
+}
+
+#imgupload {
+    max-width: 200px;
+}

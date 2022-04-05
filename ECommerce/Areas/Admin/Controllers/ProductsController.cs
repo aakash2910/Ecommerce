@@ -1,5 +1,7 @@
 ﻿using ECommerce.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Areas.Admin.Controllers
 {
@@ -11,8 +13,17 @@ namespace ECommerce.Areas.Admin.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+
+        // GET : /admin/products
+        public async Task<IActionResult> Index()
         {
+            return View(await _context.Products.Include(x => x.Category).ToListAsync());
+        }
+
+        // GET : /admin/products/create
+        public IActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(_context.Categories,"Id", "Name");
             return View();
         }
     }

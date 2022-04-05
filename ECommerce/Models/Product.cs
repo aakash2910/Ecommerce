@@ -12,19 +12,26 @@ namespace ECommerce.Models
         public string Name { get; set; }
         public string? Slug { get; set; }
 
-        [Required, MinLength(4, ErrorMessage = "Minimum length is 5 characters")]
+        [Required, MinLength(5, ErrorMessage = "Minimum length is 5 characters")]
         public string Description { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }   
+
+        [FileExtensions()]
         public string Image { get; set; }
         public string SKU { get; set; }
 
+        [Range(1, int.MaxValue, ErrorMessage = "You must choose category.")]
         public int CategoryId { get; set; }
-
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageUpload { get; set; }
+
+
 
         /*[ForeignKey("DiscountId")]
         public Discount Discount { get; set; }
