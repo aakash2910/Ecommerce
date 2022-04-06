@@ -28,7 +28,7 @@
             </div><br />
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <textarea id="editor" asp-for = "Content" class = "form-control"></textarea>
+                <textarea asp-for = "Content" class = "form-control"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div><br />
             
@@ -45,14 +45,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-    <script>
-    ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
 }
 
 

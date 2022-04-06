@@ -21,7 +21,7 @@ a:hover {
     opacity : .5 !important;
 }
 
-.ck-editor__editable {
+textarea {
     min-height: 200px;
 }
 

@@ -49,7 +49,7 @@
                 @item.Price
             </td>
             <td>
-                @item.Image
+                <img src="/../Images/Products/@item.Image" width="50" height="50">
             </td>
             <td>
                 @item.SKU
@@ -66,3 +66,7 @@
 }
     </tbody>
 </table>
+
+<div class="d-flex w-100 justify-content-center">
+    <Pagination page-count="@ViewBag.TotalPages" page-target="/admin/products" page-number="@ViewBag.PageNumber" page-range="@ViewBag.PageRange"></Pagination>
+</div>

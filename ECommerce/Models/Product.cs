@@ -18,15 +18,14 @@ namespace ECommerce.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }   
 
-        [FileExtensions()]
-        public string Image { get; set; }
+        public string? Image { get; set; }
         public string SKU { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "You must choose category.")]
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
+        public virtual Category? Category { get; set; }
 
         [NotMapped]
         public IFormFile ImageUpload { get; set; }
