@@ -4,6 +4,15 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSession(options =>
+{   
+    // If you want session to timed out use following code
+    //options.IdleTimeout = TimeSpan.FromSeconds(2);
+    //options.IdleTimeout = TimeSpan.FromMinutes(15);
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
@@ -23,13 +32,27 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession();
+
 app.UseAuthorization();
+
+/*app.MapControllerRoute(
+    "pages",
+    "{slug?}",
+    defaults: new { controller = "Pages", action = "Page" });
+*/
+app.MapControllerRoute(
+    "products",
+    "products/{categorySlug?}",
+    defaults: new { controller = "Products", action = "ProductsByCategory" });
 
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Products}/{action=Index}/{id?}");
+
 
 app.Run();

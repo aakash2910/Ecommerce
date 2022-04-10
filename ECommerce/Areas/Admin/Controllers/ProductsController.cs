@@ -158,5 +158,36 @@ namespace ECommerce.Areas.Admin.Controllers
             return View(product);
         }
 
+
+        // GET admin/products/delete/{id}
+        public async Task<IActionResult> Delete(int id)
+        {
+            Product product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                TempData["Error"] = "Product does not exists!!";
+            }
+            else
+            {
+                if (!string.Equals(product.Image, "NoImage.jpg"))
+                {
+                    string uploadDir = Path.Combine(_environment.WebRootPath, "Images/Products");
+
+                    string oldImagePath = Path.Combine(uploadDir, product.Image);
+
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
+                }
+
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+
+                TempData["Success"] = "Product deleted successfully";
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
