@@ -1,9 +1,10 @@
 ﻿using ECommerce.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         private Func<Type, object> getRequiredService;
 
@@ -12,14 +13,14 @@ namespace ECommerce.Data
 
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Page>().HasData(
                     new Page { Id = 1, Title = "Home", Slug = "Home", Content = "Home Page", Sorting = 0 },
                     new Page { Id = 2, Title = "About Us", Slug = "about-us", Content = "About Us Page", Sorting = 100 },
                     new Page { Id = 3, Title = "Services", Slug = "services", Content = "Services Page", Sorting = 100 }
                 );
-        }
+        }*/
 
         // Create table named Categories in DB 
         public DbSet<Account> Accounts { get; set; }
