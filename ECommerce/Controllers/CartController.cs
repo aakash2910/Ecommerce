@@ -108,8 +108,13 @@ namespace ECommerce.Controllers
         {
             HttpContext.Session.Remove("Cart");
 
+            if (HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
+            {
+                return Redirect(Request.Headers["Referer"].ToString());
+            }
+
             //return RedirectToAction("Index");
-            return Redirect(Request.Headers["Referer"].ToString());
+            return Ok();
         }
     }
 }

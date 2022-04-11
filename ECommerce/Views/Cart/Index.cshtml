@@ -11,7 +11,7 @@
     <h1>Cart Summary</h1>
 
     <div class="cartWrapper">
-        <div class="cartbg">
+        <div class="cartbg d-none">
             <h3 class="text-center">Redirecting you to PayPal...</h3>
             <img src="~/Images/ajax_loader.gif" />
         </div>
@@ -43,7 +43,7 @@
             <tr>
                 <td class="text-right" colspan="4">
                     <a asp-action="Clear" class="btn btn-danger">Clear Cart</a>
-                    <a href="#" class="btn-primary btn">CheckOut</a>
+                    <a href="#" class="btn-primary btn checkout">CheckOut</a>
                 </td>
             </tr>
         </table>
@@ -55,3 +55,26 @@ else
 }
 
 <partial name="~/Views/Cart/_PaypalPartial.cshtml" for="CartItems"></partial>
+
+
+@section Scripts {
+    
+    <script>
+        
+        $(function () {
+        
+            $("a.checkout").click(function(e){
+                
+                e.preventDefault();
+                $("div.cartbg").removeClass("d-none");
+                
+                $.get("/cart/clear",{}, function(){
+                
+                    $("form.paypalform").submit();
+                
+                });
+            });    
+        });
+
+    </script>
+}
