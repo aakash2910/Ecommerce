@@ -4,9 +4,12 @@
     ViewData["Title"] = "Edit Product";
 }
 
-<h1>Edit Product</h1>
+<div class="container">
+    <h3>Edit Product</h3>
+    <a class="btn btn-secondary" style="float:right" asp-action="Index">Back to List</a>
+</div>
 
-<hr />
+
 <div class="row">
     <div class="col-md-8">
         <form asp-action="Edit" enctype="multipart/form-data">
@@ -65,9 +68,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

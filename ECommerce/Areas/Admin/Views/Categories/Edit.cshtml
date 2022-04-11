@@ -4,9 +4,11 @@
     ViewData["Title"] = "Edit Category";
 }
 
-<h1>Edit Category</h1>
+<div>
+    <h3>Edit Category</h3>
+    <a class="btn btn-secondary" style="float:right" asp-action="Index">Back to List</a>
+</div>
 
-<hr />
 <div class="row">
     <div class="col-md-8">
         <form asp-action="Edit">
@@ -30,9 +32,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

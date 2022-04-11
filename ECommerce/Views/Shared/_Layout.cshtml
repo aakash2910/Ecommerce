@@ -35,10 +35,11 @@
                         @await Component.InvokeAsync("SmallCart")
                     </div>
                 </div>
+                <div class="col">
+                    @RenderBody()
+                </div>
             </div>
-            <div class="col">
-                @RenderBody()
-            </div>
+            
         </main>
     </div>
 

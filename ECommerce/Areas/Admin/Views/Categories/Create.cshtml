@@ -4,9 +4,11 @@
     ViewData["Title"] = "Create Category";
 }
 
-<h1>Create Category</h1>
+<div>
+    <h3>Create Category</h3>
+    <a class="btn btn-secondary" style="float:right" asp-area = "Admin" asp-controller = "Categories" asp-action="Index">Back to List</a>
+</div>
 
-<hr />
 <div class="row">
     <div class="col-md-8">
         <form asp-action="Create" >
@@ -28,10 +30,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-area = "Admin" asp-controller = "Categories" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

@@ -4,12 +4,12 @@
     ViewData["Title"] = "Pages";
 }
 
-<h1>Pages</h1>
+<h3>Pages</h3>
 
 <p>
-    <a asp-action="Create">Create New Page</a>
+    <a class="btn btn-primary" style="float:right" asp-action="Create">Create New Page</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr> 
             
@@ -41,11 +41,11 @@
             </td>
             
             <td>
-                <a asp-controller="Pages" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-controller="Pages" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-primary" asp-controller="Pages" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a class="btn btn-primary" asp-controller="Pages" asp-action="Details" asp-route-id="@item.Id">Details</a> 
                 @if(item.Slug != "Home")
                 {
-                    <a class="confirmDeletion" asp-controller="Pages" asp-action="Delete" asp-route-id="@item.Id">Delete</a>        
+                    <a class="confirmDeletion btn btn-primary" asp-controller="Pages" asp-action="Delete" asp-route-id="@item.Id">Delete</a>        
                 }
             </td>
         </tr>

@@ -4,10 +4,11 @@
     ViewData["Title"] = "Edit Page";
 }
 
-<h1>Edit Page</h1>
+<div>
+    <h3>Edit Page</h3>
+    <a class="btn btn-secondary" style="float:right" asp-action="Index">Back to List</a>
+</div>
 
-
-<hr />
 <div class="row">
     <div class="col-md-8">
         <form asp-action="Edit">
@@ -37,10 +38,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

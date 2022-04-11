@@ -41,6 +41,12 @@ app.UseAuthorization();
     "{slug?}",
     defaults: new { controller = "Pages", action = "Page" });
 */
+
+app.MapControllerRoute(
+    "products",
+    "products/",
+    defaults: new { controller = "Products", action = "Index" });
+
 app.MapControllerRoute(
     "products",
     "products/{categorySlug?}",

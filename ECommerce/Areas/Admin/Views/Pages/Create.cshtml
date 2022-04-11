@@ -4,10 +4,11 @@
     ViewData["Title"] = "Create Page";
 }
 
-<h1>Create Page</h1>
+<div class="container">
+    <h3>Create Page</h3>
+    <a class="btn btn-secondary" style="float:right" asp-controller="Pages" asp-action="Index">Back to List</a>
+</div>
 
-<h4>Page</h4>
-<hr />
 <div class="row">
     <div class="col-md-8">
         <form asp-action="Create">
@@ -36,9 +37,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
